@@ -1,1 +1,7 @@
-<p>main-page works!</p>
+<h2>Top Selling</h2>
+<div id="top-selling-list">
+    <div *ngFor="let movie of movies">
+        <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
+        <p>{{ movie.title }}</p>
+    </div>
+</div>
