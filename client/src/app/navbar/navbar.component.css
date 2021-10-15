@@ -1,0 +1,18 @@
+@import "../../_variables.css";
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background: var(--primary-color);
+    color: var(--primary-text);
+    padding: 1.5rem;
+}
+
+a, a:active {
+    color: var(--primary-text);
+    text-decoration: none;
+}
+
+#navbar-brand {
+    font-size: 150%;
+}
