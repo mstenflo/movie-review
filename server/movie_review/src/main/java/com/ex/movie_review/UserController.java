@@ -1,6 +1,8 @@
 package com.ex.movie_review;
 
-import models.User;
+import com.ex.movie_review.models.User;
+import com.ex.movie_review.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,17 @@ public class UserController {
     @Value("${my.message.value}")
     private String value;
 
+    private UserRepository userRepository;
+
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public User getMessage() {
         User user = new User();
-        user.setId(3);
+        user.setId(3L);
         user.setEmail("es@srt.com");
         user.setFirstname("John");
         user.setLastname("Doe");
@@ -29,18 +38,18 @@ public class UserController {
         return user;
     }
 
-//    @GetMapping(path="u")
-//    public User GetUserWithId(@RequestParam(value = "id", required = false) Integer userId) {
-//        System.out.println("Getting user with id " + userId);
-//        return new User();
-//    }
+    @GetMapping(path="u")
+    public User GetUserWithId(@RequestParam(value = "id", required = false) long userId) {
+        System.out.println("Getting user with id " + userId);
+        return new User();
+    }
 
     @GetMapping(path="{id}")
-    public User getUserById(@PathVariable Integer id) {
+    public User getUserById(@PathVariable long id) {
         System.out.println("Getting user with id from path " + id);
-        User user = new User();
-        user.setId(id);
-        return user;
+        User user = userRepository.getById(id)
+
+        return getUserWithId(id);
     }
 
     @PostMapping()
