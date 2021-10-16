@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -13,6 +16,7 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping(path = "users")
+@Transactional
 public class UserController {
 
     @Value("${my.message.value}")
@@ -45,11 +49,13 @@ public class UserController {
     }
 
     @GetMapping(path="{id}")
+    @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User getUserById(@PathVariable long id) {
         System.out.println("Getting user with id from path " + id);
-        User user = userRepository.getById(id)
+        User user = userRepository.getById(id);
+        System.out.println(user);
 
-        return getUserWithId(id);
+        return user;
     }
 
     @PostMapping()
