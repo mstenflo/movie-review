@@ -1,7 +1,16 @@
 <h2>Top Selling</h2>
 <div id="top-selling-list">
-    <div *ngFor="let movie of movies">
-        <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
-        <p>{{ movie.title }}</p>
+    <div *ngIf="movies.length !== 0; else elseBlock">
+        <div *ngFor="let movie of movies">
+            <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
+            <p>{{ movie.title }}</p>
+        </div>
     </div>
+    <ng-template #elseBlock>
+        <mat-progress-spinner
+            class="example-margin"
+            [color]="color"
+            [mode]="mode">
+        </mat-progress-spinner>
+    </ng-template>
 </div>
