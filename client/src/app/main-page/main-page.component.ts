@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MovieService } from '../movie.service';
 import { Movie } from '../movie';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-main-page',
@@ -10,6 +12,8 @@ import { Movie } from '../movie';
 export class MainPageComponent implements OnInit {
 
   movies : Movie[] = [];
+  mode: ProgressSpinnerMode = "indeterminate";
+  color: string = "black";
 
   constructor(private movieService : MovieService) {
     console.log(this.movies);
