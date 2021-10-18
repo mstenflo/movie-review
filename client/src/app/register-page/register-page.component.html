@@ -1,1 +1,29 @@
-<p>register-page works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank</title>
+  <link rel="stylesheet" href="register-page.component.css">
+  <script defer src="register-page.component.js"></script>
+</head>
+
+<body>
+<main id="main-holder">
+  <h1 id="login-header">Register</h1>
+
+  <div id="register-error-msg-holder">
+    <p id="register-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+  </div>
+
+  <form id="register-form">
+    <input type="text" name="username" id="username-field" class="register-form-field" placeholder="Username">
+    <input type="password" name="password" id="password-field" class="register-form-field" placeholder="Password">
+    <input type="submit" value="Register" id="register-form-submit">
+  </form>
+
+</main>
+</body>
+
+</html>
