@@ -1,0 +1,28 @@
+input {
+    background: lightgray;
+    width: 40rem;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#movieSearchResults {
+    position: absolute;
+    background: white;
+    min-width: 40rem;
+    max-height: 20rem;
+    overflow-y: scroll;
+    border: 2px solid black;
+    z-index: 2;
+}
+
+#movieSearchResults a {
+    display: block;
+    padding: 1rem;
+    color: black
+}
+
+#movieSearchResults a img {
+    display: inline;
+    width: 2rem;
+}
