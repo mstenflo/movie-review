@@ -16,8 +16,8 @@ export class MainPageComponent implements OnInit {
   color: string = "black";
 
   constructor(private movieService : MovieService) {
-    console.log(this.movies);
-   }
+    
+  }
 
   ngOnInit(): void {
     this.getMovies();
