@@ -2,6 +2,7 @@ package com.ex.movie_review;
 
 import com.ex.movie_review.models.User;
 import com.ex.movie_review.repositories.UserRepository;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "users")
@@ -45,27 +47,44 @@ public class UserController {
     @GetMapping(path="{id}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User getUserById(@PathVariable long id) {
-        System.out.println("Getting user with id from path " + id);
         User user = userRepository.getById(id);
-        System.out.println(user);
-
         return user;
     }
 
     @GetMapping(path="username/{username}")
     public User getUserByUsername(@PathVariable String username) {
-        System.out.println("Username: " + username);
         User user = userRepository.findByUsername(username);
-        System.out.println(user);
         return user;
     }
 
     @PostMapping()
-    public void createNewUser(@RequestBody User newUser) throws URISyntaxException {
-        System.out.println("Creating new user");
-        System.out.println(newUser);
+    public void createNewUser(@RequestBody User newUser) {
         userRepository.save(newUser);
 //        User user = new User();
 //        return ResponseEntity.created(new URI("http://localhost:8001/api/users/4")).build();
+    }
+
+    @PatchMapping(path = "{id}")
+    public void updateUser(@PathVariable long id, @RequestBody User userUpdate) {
+        User user = userRepository.getById(id);
+        if (userUpdate.getUsername() != null) {
+            user.setUsername(userUpdate.getUsername());
+        }
+        if (userUpdate.getPassword() != null) {
+            user.setPassword(userUpdate.getPassword());
+        }
+        if (userUpdate.getEmail() != null) {
+            user.setEmail(userUpdate.getEmail());
+        }
+        if (userUpdate.getPhone() != null) {
+            user.setPhone(userUpdate.getPhone());
+        }
+        if (userUpdate.getFirstname() != null) {
+            user.setFirstname(userUpdate.getFirstname());
+        }
+        if (userUpdate.getLastname() != null) {
+            user.setLastname(userUpdate.getLastname());
+        }
+        userRepository.save(user);
     }
 }
