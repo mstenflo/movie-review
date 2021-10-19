@@ -1,0 +1,9 @@
+<div>
+    <input type="text" placeholder="Search Movies & Users..." [(ngModel)]="searchTerm" (ngModelChange)="searchForMovie()">
+    <div *ngIf="foundMovies && searchTerm" id="movieSearchResults">
+        <a *ngFor="let movie of foundMovies" class="searchElement">
+            <img src="{{ movie.image }}" alt="Poster for the movie {{ movie.title }}">
+            {{ movie.title }}
+        </a>
+    </div>
+</div>
