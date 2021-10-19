@@ -61,8 +61,11 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity createNewUser(@RequestBody User user) throws URISyntaxException {
+    public void createNewUser(@RequestBody User newUser) throws URISyntaxException {
         System.out.println("Creating new user");
-        return ResponseEntity.created(new URI("http://localhost:8001/api/users/4")).build();
+        System.out.println(newUser);
+        userRepository.save(newUser);
+//        User user = new User();
+//        return ResponseEntity.created(new URI("http://localhost:8001/api/users/4")).build();
     }
 }
