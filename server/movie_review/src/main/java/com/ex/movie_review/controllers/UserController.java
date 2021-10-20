@@ -1,28 +1,20 @@
-package com.ex.movie_review;
+package com.ex.movie_review.controllers;
 
 import com.ex.movie_review.models.User;
 import com.ex.movie_review.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "users")
 @Transactional
 public class UserController {
-
-    @Value("${my.message.value}")
-    private String value;
-
     private UserRepository userRepository;
 
     @Autowired
@@ -35,34 +27,46 @@ public class UserController {
         List<User> users = userRepository.findAll();
         return users;
     }
-//
-//    @GetMapping(path="u")
-//    public User GetUserWithId(@RequestParam(value = "id", required = false) long userId) {
-//        System.out.println("Getting user with id " + userId);
-//        return new User();
-//    }
 
     @GetMapping(path="{id}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User getUserById(@PathVariable long id) {
-        System.out.println("Getting user with id from path " + id);
         User user = userRepository.getById(id);
-        System.out.println(user);
-
         return user;
     }
 
     @GetMapping(path="username/{username}")
     public User getUserByUsername(@PathVariable String username) {
-        System.out.println("Username: " + username);
         User user = userRepository.findByUsername(username);
-        System.out.println(user);
         return user;
     }
 
     @PostMapping()
-    public ResponseEntity createNewUser(@RequestBody User user) throws URISyntaxException {
-        System.out.println("Creating new user");
-        return ResponseEntity.created(new URI("http://localhost:8001/api/users/4")).build();
+    public void createNewUser(@RequestBody User newUser) {
+        userRepository.save(newUser);
+    }
+
+    @PatchMapping(path = "{id}")
+    public void updateUser(@PathVariable long id, @RequestBody User userUpdate) {
+        User user = userRepository.getById(id);
+        if (userUpdate.getUsername() != null) {
+            user.setUsername(userUpdate.getUsername());
+        }
+        if (userUpdate.getPassword() != null) {
+            user.setPassword(userUpdate.getPassword());
+        }
+        if (userUpdate.getEmail() != null) {
+            user.setEmail(userUpdate.getEmail());
+        }
+        if (userUpdate.getPhone() != null) {
+            user.setPhone(userUpdate.getPhone());
+        }
+        if (userUpdate.getFirstname() != null) {
+            user.setFirstname(userUpdate.getFirstname());
+        }
+        if (userUpdate.getLastname() != null) {
+            user.setLastname(userUpdate.getLastname());
+        }
+        userRepository.save(user);
     }
 }
