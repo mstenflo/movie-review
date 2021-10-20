@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { Response } from '../Response';
 import { Movie } from '../movie';
 import { MovieService } from '../movie.service';
 
