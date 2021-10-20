@@ -3,6 +3,7 @@ package com.ex.movie_review.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Table(name = "users")
 @Entity
@@ -23,4 +24,5 @@ public class User {
     private String lastname;
     private String email;
     private String phone;
+    private LocalDateTime date;
 }

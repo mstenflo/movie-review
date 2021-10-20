@@ -1,4 +1,4 @@
-package com.ex.movie_review;
+package com.ex.movie_review.service;
 
 import org.springframework.stereotype.Service;
 

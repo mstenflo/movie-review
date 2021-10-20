@@ -1,4 +1,4 @@
-package com.ex.movie_review;
+package com.ex.movie_review.controllers;
 
 import com.ex.movie_review.models.User;
 import com.ex.movie_review.repositories.UserRepository;

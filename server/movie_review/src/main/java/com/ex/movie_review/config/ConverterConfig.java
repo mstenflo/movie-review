@@ -1,4 +1,4 @@
-package com.ex.movie_review;
+package com.ex.movie_review.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
