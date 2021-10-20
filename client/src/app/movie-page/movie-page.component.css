@@ -1,0 +1,11 @@
+#movieInfoBox {
+    width: 20rem;
+}
+
+#movieInfoBox img {
+    width: 20rem;
+}
+
+#movieInfoBox h1 {
+    text-align: center;
+}
