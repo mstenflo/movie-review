@@ -1,34 +1,26 @@
 package com.ex.movie_review.models;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
-@AllArgsConstructor
-@Data
+@Table(name = "users")
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+
 public class User {
-    @javax.persistence.Id
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
 
-    public String username;
-    public String password;
-    public String firstname;
-    public String lastname;
-    public String email;
-    public String phone;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String username;
+    private String password;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String phone;
 }

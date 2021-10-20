@@ -16,7 +16,6 @@ public class MovieReviewApplication {
     private String value;
 
     public static void main(String[] args) {
-
         SpringApplication.run(MovieReviewApplication.class, args);
     }
 
