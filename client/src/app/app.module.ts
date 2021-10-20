@@ -13,6 +13,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { FormsModule } from '@angular/forms';
+import { MoviePageComponent } from './movie-page/movie-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     MainPageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,
