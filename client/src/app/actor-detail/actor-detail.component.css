@@ -1,0 +1,9 @@
+.actorCard {
+    display: block;
+    margin: 2rem;
+    width: 5rem;
+}
+
+.actorCard img {
+    width: 5rem;
+}

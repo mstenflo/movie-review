@@ -1,0 +1,35 @@
+<div>
+    <h2>Movie Information</h2>
+    <hr>
+    <div class="infoContainer">
+        <span class="infoLabel">Title: </span>
+        <span>{{ movie.title }}</span>
+    </div>
+    <div class="infoContainer">
+        <span class="infoLabel">Year Released: </span> 
+        <span>{{ movie.year }}</span>
+    </div>
+    <div class="infoContainer">
+        <span class="infoLabel">Runtime: </span> 
+        <span>{{ movie.runtimeStr }}</span>
+    </div>
+    <div class="infoContainer">
+        <span class="infoLabel">Description: </span> 
+        <span>{{ movie.plot }}</span>
+    </div>
+    <div class="infoContainer">
+        <span class="infoLabel">Awards: </span> 
+        <span>{{ movie.awards }}</span>
+    </div>
+    <div class="infoContainer">
+        <span class="infoLabel">Rated: </span> 
+        <span>{{ movie.contentRating }}</span>
+    </div>
+
+    <h2>Recognized Reviews</h2>
+    <hr>
+    <div class="infoContainer">
+        <span class="infoLabel">IMDB Rating: </span> 
+        <span>{{ movie.imDbRating }}</span>
+    </div>
+</div>
