@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { FormsModule } from '@angular/forms';
 import { MoviePageComponent } from './movie-page/movie-page.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieActorsComponent } from './movie-actors/movie-actors.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
     LoginPageComponent,
     RegisterPageComponent,
     SearchInputComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    MovieDetailComponent,
+    MovieActorsComponent
   ],
   imports: [
     BrowserModule,
