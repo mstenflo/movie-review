@@ -11,16 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class MovieReviewApplication {
-
-    @Value("${my.message.value}")
-    private String value;
-
     public static void main(String[] args) {
         SpringApplication.run(MovieReviewApplication.class, args);
-    }
-
-    @Bean
-    public CommandLineRunner runner() {
-        return args -> System.out.println(value);
     }
 }

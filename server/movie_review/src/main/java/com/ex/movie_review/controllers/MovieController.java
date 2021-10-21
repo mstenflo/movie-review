@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "movies")
 @Transactional
+@CrossOrigin(origins = "http://localhost:4200")
 public class MovieController {
     private MovieRepository movieRepository;
 
@@ -37,8 +38,8 @@ public class MovieController {
     @PatchMapping(path = "{id}")
     public void updateMovie(@PathVariable long id, @RequestBody Movie movieUpdate) {
         Movie movie = movieRepository.getById(id);
-        if (movieUpdate.getTitle() != null) {
-            movie.setTitle(movieUpdate.getTitle());
+        if (movieUpdate.getImdbid() != null) {
+            movie.setImdbid(movieUpdate.getImdbid());
         }
     }
 
