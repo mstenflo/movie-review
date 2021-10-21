@@ -1,11 +1,16 @@
 <div>
     <div id="movieInfoBox">
         <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
-        <h1>{{ movie.title }}</h1>
+        <h1>
+            {{ movie.title }}<br>
+            {{ movie.year }}
+        </h1>
     </div>
     <div id="movieMiscBox">
         <mat-tab-group>
-            <mat-tab label="Movie Info"> Content 1 </mat-tab>
+            <mat-tab label="Movie Info">
+                <app-movie-detail [movie]="movie"></app-movie-detail>
+            </mat-tab>
             <mat-tab label="Actors"> Content 2 </mat-tab>
             <mat-tab label="Reviews"> Content 3 </mat-tab>
         </mat-tab-group>
