@@ -3,9 +3,9 @@ package com.ex.movie_review.models;
 import lombok.*;
 
 import javax.persistence.*;
-import java.awt.*;
+import java.time.LocalDateTime;
 
-@Table(name = "movies")
+@Table(name = "reviews")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +19,13 @@ public class Review {
     private long id;
 
     private String subject;
-    private TextArea body;
+    private String body;
 
     @ManyToOne
-    @JoinColumn(name = "reviewerId")
+    @JoinColumn(name = "reviewerid")
     private User reviewer;
+
+    private String imdbid;
+    private LocalDateTime createdat;
+    private LocalDateTime updatedat;
 }
