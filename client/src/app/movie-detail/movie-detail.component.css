@@ -1,0 +1,19 @@
+@import "../../_variables.css";
+
+hr {
+    border: 1px solid var(--primary-color);
+    width: 30%;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.infoContainer {
+    display: block;
+    padding: 0.5rem 0;
+}
+.infoLabel {
+    font-weight: bold;
+}
