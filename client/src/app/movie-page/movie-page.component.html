@@ -11,7 +11,9 @@
             <mat-tab label="Movie Info">
                 <app-movie-detail [movie]="movie"></app-movie-detail>
             </mat-tab>
-            <mat-tab label="Actors"> Content 2 </mat-tab>
+            <mat-tab label="Actors">
+                <app-movie-actors [movie]="movie"></app-movie-actors>
+            </mat-tab>
             <mat-tab label="Reviews"> Content 3 </mat-tab>
         </mat-tab-group>
     </div>
