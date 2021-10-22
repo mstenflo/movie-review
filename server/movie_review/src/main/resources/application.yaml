@@ -3,9 +3,6 @@ server:
   servlet:
     context-path: /api
 
-my:
-  message:
-    value: 'Hello world!'
 spring:
   datasource:
     url: jdbc:postgresql://project0.c97dt2ne08zr.us-west-1.rds.amazonaws.com/postgres
