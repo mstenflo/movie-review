@@ -12,15 +12,21 @@ export class SearchInputComponent implements OnInit {
 
   @Input() searchTerm!: string;
   foundMovies!: Movie[];
+  userIsSearching: boolean;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {
+    this.userIsSearching = false;
+  }
 
   searchForMovie(): void {
     this.movieService.searchForMovie(this.searchTerm).subscribe(response => this.foundMovies = response.results);
   }
 
+  toggleSearch(flag: boolean): void {
+    this.userIsSearching = flag;
+  }
+
   ngOnChanges(): void {
-    this.searchForMovie();
   }
 
   ngOnInit(): void {

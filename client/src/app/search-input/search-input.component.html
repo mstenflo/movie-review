@@ -1,6 +1,11 @@
 <div>
-    <input type="text" placeholder="Search Movies & Users..." [(ngModel)]="searchTerm" (ngModelChange)="searchForMovie()">
-    <div *ngIf="foundMovies && searchTerm" id="movieSearchResults">
+    <input type="text" 
+           placeholder="Search Movies & Users..." 
+           (focus)="toggleSearch(true)"
+           (focusout)="toggleSearch(false)" 
+           [(ngModel)]="searchTerm" 
+           (ngModelChange)="searchForMovie()">
+    <div *ngIf="userIsSearching" id="movieSearchResults">
         <a *ngFor="let movie of foundMovies" class="searchElement" [routerLink]="['/movies', movie.id]">
             <img src="{{ movie.image }}" alt="Poster for the movie {{ movie.title }}">
             {{ movie.title }}
