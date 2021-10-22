@@ -26,6 +26,12 @@ export class SearchInputComponent implements OnInit {
     this.userIsSearching = flag;
   }
 
+  delayToggleSearch(flag: boolean): void {
+    setTimeout(() => {
+      this.toggleSearch(flag);
+    }, 200);
+  }
+
   ngOnChanges(): void {
   }
 

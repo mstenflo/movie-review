@@ -1,8 +1,7 @@
-<div>
+<div (focusout)="delayToggleSearch(false)" >
     <input type="text" 
            placeholder="Search Movies & Users..." 
            (focus)="toggleSearch(true)"
-           (focusout)="toggleSearch(false)" 
            [(ngModel)]="searchTerm" 
            (ngModelChange)="searchForMovie()">
     <div *ngIf="userIsSearching" id="movieSearchResults">
