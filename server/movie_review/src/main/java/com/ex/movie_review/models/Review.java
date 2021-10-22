@@ -21,9 +21,7 @@ public class Review {
     private String subject;
     private String body;
 
-    @ManyToOne
-    @JoinColumn(name = "reviewerid")
-    private User reviewer;
+    private long reviewerid;
 
     private String imdbid;
     private LocalDateTime createdat;

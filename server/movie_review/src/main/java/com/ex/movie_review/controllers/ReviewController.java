@@ -33,7 +33,8 @@ public class ReviewController {
 
     @PostMapping()
     public void createNewReview(@RequestBody Review review) {
-        System.out.println(review);
+        review.setCreatedat(LocalDateTime.now());
+        review.setUpdatedat(LocalDateTime.now());
         reviewRepository.save(review);
     }
 
