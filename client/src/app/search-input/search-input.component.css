@@ -10,6 +10,7 @@ input {
     position: absolute;
     background: white;
     min-width: 40rem;
+    min-height: 10rem;
     max-height: 20rem;
     overflow-y: scroll;
     border: 2px solid black;
