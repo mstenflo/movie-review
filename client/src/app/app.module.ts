@@ -12,8 +12,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchInputComponent } from './search-input/search-input.component';
 import { FormsModule } from '@angular/forms';
+import { SearchInputComponent } from './search-input/search-input.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieActorsComponent } from './movie-actors/movie-actors.component';
@@ -39,7 +39,7 @@ import { ActorDetailComponent } from './actor-detail/actor-detail.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
