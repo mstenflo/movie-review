@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieActorsComponent } from './movie-actors/movie-actors.component';
 import { ActorDetailComponent } from './actor-detail/actor-detail.component';
+import { ReviewListComponent } from './review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ActorDetailComponent } from './actor-detail/actor-detail.component';
     MoviePageComponent,
     MovieDetailComponent,
     MovieActorsComponent,
-    ActorDetailComponent
+    ActorDetailComponent,
+    ReviewListComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { ActorDetailComponent } from './actor-detail/actor-detail.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatCardModule,
     FormsModule
   ],
   providers: [],
