@@ -35,6 +35,7 @@ div {
 @media (min-width: 992px) {
     div {
         flex-direction: row;
+        align-items: flex-start;
     }
 }
 
