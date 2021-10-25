@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActorDetailComponent } from './actor-detail.component';
+import { Actor } from '../Actor'
 
 describe('ActorDetailComponent', () => {
   let component: ActorDetailComponent;
@@ -16,6 +17,15 @@ describe('ActorDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ActorDetailComponent);
     component = fixture.componentInstance;
+
+    let expectedActor : Actor = {
+      id: 1,
+      image: "img",
+      name: "John Doe",
+      asCharacter: "Forrest Gump"
+    }
+    component.actor = expectedActor;
+
     fixture.detectChanges();
   });
 

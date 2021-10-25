@@ -16,6 +16,9 @@ describe('ReviewListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ReviewListComponent);
     component = fixture.componentInstance;
+
+    component.reviews = [];
+
     fixture.detectChanges();
   });
 
