@@ -1,5 +1,7 @@
 div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #movieInfoBox {
@@ -19,4 +21,23 @@ div {
 
 #movieInfoBox h1 {
     text-align: center;
+}
+
+
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    div {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1200px) {
+    
 }
