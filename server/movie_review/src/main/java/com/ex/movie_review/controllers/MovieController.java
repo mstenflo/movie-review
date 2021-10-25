@@ -20,21 +20,39 @@ public class MovieController {
         this.movieRepository = movieRepository;
     }
 
+    /**
+     * Get a list of all movies
+     * @return List<Movie>
+     */
     @GetMapping()
     public List<Movie> getAll() {
         return movieRepository.findAll();
     }
 
+    /**
+     * Get a single movie
+     * @param id
+     * @return Movie
+     */
     @GetMapping(path = "{id}")
     public Movie getMovieById(@PathVariable long id) {
         return movieRepository.getById(id);
     }
 
+    /**
+     * Create a new movie listing
+     * @param movie
+     */
     @PostMapping()
     public void createNewMovie(@RequestBody Movie movie) {
         movieRepository.save(movie);
     }
 
+    /**
+     * Update a movie
+     * @param id
+     * @param movieUpdate
+     */
     @PatchMapping(path = "{id}")
     public void updateMovie(@PathVariable long id, @RequestBody Movie movieUpdate) {
         Movie movie = movieRepository.getById(id);
@@ -43,6 +61,10 @@ public class MovieController {
         }
     }
 
+    /**
+     * Delete a movie
+     * @param id
+     */
     @DeleteMapping(path = "{id}")
     public void deleteMovie(@PathVariable long id) {
         movieRepository.delete(getMovieById(id));

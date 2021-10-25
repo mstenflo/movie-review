@@ -23,30 +23,51 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Get a list of all users
+     * @return List<User>
+     */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAll() {
         List<User> users = userRepository.findAll();
         return users;
     }
 
+    /**
+     * Get user by id
+     * @param id
+     * @return
+     */
     @GetMapping(path="{id}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User getUserById(@PathVariable long id) {
-        User user = userRepository.getById(id);
-        return user;
+        return userRepository.getById(id);
     }
 
+    /**
+     * Get user by username
+     * @param username
+     * @return
+     */
     @GetMapping(path="username/{username}")
     public User getUserByUsername(@PathVariable String username) {
-        User user = userRepository.findByUsername(username);
-        return user;
+        return userRepository.findByUsername(username);
     }
 
+    /**
+     * Create a new user
+     * @param newUser
+     */
     @PostMapping()
     public void createNewUser(@RequestBody User newUser) {
         userRepository.save(newUser);
     }
 
+    /**
+     * Update a user
+     * @param id
+     * @param userUpdate
+     */
     @PatchMapping(path = "{id}")
     public void updateUser(@PathVariable long id, @RequestBody User userUpdate) {
         User user = userRepository.getById(id);
