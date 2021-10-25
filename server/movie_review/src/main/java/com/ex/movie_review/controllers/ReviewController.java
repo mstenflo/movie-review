@@ -21,16 +21,29 @@ public class ReviewController {
         this.reviewRepository = reviewRepository;
     }
 
+    /**
+     * Get a list of all reviews
+     * @return List<Review>
+     */
     @GetMapping()
     public List<Review> getAll() {
         return reviewRepository.findAll();
     }
 
+    /**
+     * Get a single review
+     * @param id
+     * @return Review
+     */
     @GetMapping(path = "{id}")
     public Review getReviewById(@PathVariable long id) {
         return reviewRepository.getById(id);
     }
 
+    /**
+     * Update a review
+     * @param review
+     */
     @PostMapping()
     public void createNewReview(@RequestBody Review review) {
         review.setCreatedat(LocalDateTime.now());
@@ -38,6 +51,11 @@ public class ReviewController {
         reviewRepository.save(review);
     }
 
+    /**
+     * Update a review
+     * @param id
+     * @param reviewUpdate
+     */
     @PatchMapping(path = "{id}")
     public void updateReview(@PathVariable long id, @RequestBody Review reviewUpdate) {
         Review review = reviewRepository.getById(id);
@@ -53,6 +71,10 @@ public class ReviewController {
         review.setUpdatedat(LocalDateTime.now());
     }
 
+    /**
+     * Delete a review
+     * @param id
+     */
     @DeleteMapping(path = "{id}")
     public void deleteReview(@PathVariable long id) {
         reviewRepository.delete(getReviewById(id));
