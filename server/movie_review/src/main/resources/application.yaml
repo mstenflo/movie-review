@@ -1,0 +1,11 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://project0.c97dt2ne08zr.us-west-1.rds.amazonaws.com/postgres
+    username: postgres
+    password: AU85#f&EVKVW5iT
+    driver-class-name: org.postgresql.Driver

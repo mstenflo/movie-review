@@ -1,0 +1,12 @@
+<div (focusout)="delayToggleSearch(false)" >
+    <input type="text" 
+           placeholder="Search Movies & Users..." 
+           [(ngModel)]="searchTerm" 
+           (ngModelChange)="searchForMovie()">
+    <div id="movieSearchResults" [@searchOpenState]="menuState">
+        <a *ngFor="let movie of foundMovies" class="searchElement" [routerLink]="['/movies', movie.id]">
+            <img src="{{ movie.image }}" alt="Poster for the movie {{ movie.title }}">
+            {{ movie.title }}
+        </a>
+    </div>
+</div>

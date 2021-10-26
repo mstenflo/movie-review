@@ -1,0 +1,14 @@
+#top-selling-list div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#top-selling-list div div {
+    display: block;
+    text-align: center;
+    width: 15rem;
+}
+
+img {
+    width: 7.5rem;
+}
