@@ -2,6 +2,7 @@ package com.ex.movie_review.controllers;
 
 import com.ex.movie_review.models.User;
 import com.ex.movie_review.repositories.UserRepository;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Isolation;
@@ -9,6 +10,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -90,5 +93,17 @@ public class UserController {
             user.setLastname(userUpdate.getLastname());
         }
         userRepository.save(user);
+    }
+
+    @PostMapping(path = "login")
+    public Boolean loginUser(@RequestBody User userSubmission, HttpServletResponse response) {
+        User user = userRepository.findByUsername(userSubmission.getUsername());
+        if (user.getPassword().equals(userSubmission.getPassword())) {
+            Cookie cookie = new Cookie("user", user.getUsername());
+            response.addCookie((cookie));
+            return true;
+        } else {
+            return false;
+        }
     }
 }
