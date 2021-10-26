@@ -20,6 +20,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieActorsComponent } from './movie-actors/movie-actors.component';
 import { ActorDetailComponent } from './actor-detail/actor-detail.component';
 import { ReviewListComponent } from './review-list/review-list.component';
+import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
+import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ReviewListComponent } from './review-list/review-list.component';
     MovieDetailComponent,
     MovieActorsComponent,
     ActorDetailComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    UserProfilePageComponent,
+    UpdateProfilePageComponent
   ],
   imports: [
     BrowserModule,
