@@ -3,9 +3,10 @@
 nav {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     background: var(--primary-color);
     color: var(--primary-text);
-    padding: 1.5rem;
+    text-align: center;
 }
 
 a, a:active {
@@ -15,4 +16,31 @@ a, a:active {
 
 #navbar-brand {
     font-size: 150%;
+    padding: 1.5rem;
+}
+
+
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    nav {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    #navbar-brand {
+        padding: 1px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1200px) {
+    
 }

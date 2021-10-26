@@ -1,25 +1,15 @@
-<h1 id="login-header">Register</h1>
-
-<div id="register-error-msg-holder">
-  <p id="register-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+<div>
+  <h1 id="login-header">Register</h1>
+  
+  <form id="register-form">
+    <input type="text" name="username" id="username-field" placeholder="Username" [(ngModel)]="username">
+    <input type="password" name="password" id="password-field" placeholder="Password" [(ngModel)]="password">
+    <input type="text" name="firstname" id="firstname-field" placeholder="firstname" [(ngModel)]="firstname">
+    <input type="text" name="lastname" id="lastname-field" placeholder="lastname" [(ngModel)]="lastname">
+    <input type="text" name="email" id="email-field" placeholder="email" [(ngModel)]="email">
+    <input type="text" name="phone" id="phone" placeholder="phone" [(ngModel)]="phone">
+    <button type="submit" id="register-form-submit" (click)="handleClick()">
+      Register
+    </button>
+  </form>  
 </div>
-
-<form id="register-form">
-  <input type="text"
-         name="username"
-         id="username-field"
-         class="register-form-field"
-         placeholder="Username"
-         [value]="username">
-  <input type="password"
-         name="password"
-         id="password-field"
-         class="register-form-field"
-         placeholder="Password"
-         [value]="password">
-  <input type="submit"
-         value="Register"
-         id="register-form-submit"
-         (click)="handleClick">
-</form>
-
