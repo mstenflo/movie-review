@@ -9,6 +9,9 @@ import { Review } from '../review';
 export class ReviewListComponent implements OnInit {
 
   @Input()
+  movie_id! : string;
+
+  @Input()
   reviews!: Review[];
 
   constructor() { }
