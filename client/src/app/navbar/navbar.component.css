@@ -19,17 +19,17 @@ a, a:active {
     padding: 1.5rem;
 }
 
-#login-form-submit {
-  width: 5%;
-  margin-left: 5%;
-  padding: 7px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  background-color: #1789FC;
-  cursor: pointer;
-  outline: none;
+.authButton {
+    display: inline-block;
+    width: 5rem;
+    margin: 0.5rem;
+    align-self: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #1789FC;
 }
 
 
@@ -44,8 +44,8 @@ a, a:active {
 @media (min-width: 992px) {
     nav {
         flex-direction: row;
-        align-items: flex-start;
-        padding: 1.5rem;
+        align-items: center;
+        padding: 0.5rem;
     }
 
     #navbar-brand {

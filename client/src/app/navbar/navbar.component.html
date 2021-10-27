@@ -3,10 +3,8 @@
         <a routerLink="/">Cognoscenti</a>
     </span>
     <app-search-input></app-search-input>
-    <br>
-  <input type="submit"
-         value="Login"
-         id="login-form-submit"
-         onClick="window.open('http://localhost:4200/login')">
-
+    <div id="authButtons">
+        <a [routerLink]="['login']" class="authButton">Login</a>
+        <a [routerLink]="['register']" class="authButton">Register</a>
+    </div>
 </nav>
