@@ -1,9 +1,4 @@
-<head><!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
-  <!-- Bootstrap CSS -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <!-- Font Awesome CSS -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'></head>
+
 
 <div class="User Profile">
   <div class="container">
@@ -11,11 +6,11 @@
       <div class="col-lg-4">
         <div class="card shadow-sm">
           <div class="card-header bg-transparent text-center">
-            <h1>Profile</h1>
+            <h1>{{ user.username }}'s Profile</h1>
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-4">
         <div class="card shadow-sm">
           <div class="card-header bg-transparent border-0">
             <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
@@ -29,8 +24,7 @@
                   <form>
                     <label for="email"></label><br>
                     <div class="flexbox">
-                    <input type="text" id="email" name="email"><br>
-                    <button type="save" value="Save">Save</button>
+                      <p>{{ user.email }}</p>
                     </div>
                   </form>
                 </td>
@@ -42,8 +36,7 @@
                   <form>
                     <label for="pnumber"></label><br>
                     <div class="flexbox">
-                      <input type="text" id="pnumber" name="pnumber"><br>
-                      <button type="save" value="Save">Save</button>
+                      <p>{{ user.phone }}</p>
                     </div>
                   </form>
                 </td>
@@ -55,8 +48,7 @@
                   <form>
                     <label for="fname"></label><br>
                     <div class="flexbox">
-                    <input type="text" id="fname" name="fname"><br>
-                    <button type="save" value="Save">Save</button>
+                      <p>{{ user.firstname }}</p>
                     </div>
                   </form>
                 </td>
@@ -68,14 +60,27 @@
                   <form>
                     <label for="lname"></label><br>
                     <div class="flexbox">
-                    <input type="text" id="lname" name="lname"><br>
-                    <button class="save" type="save" value="Save">Save</button>
+                      <p>{{ user.lastname }}</p>
                     </div>
                   </form>
                 </td>
               </tr>
             </table>
           </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h2>Reviews</h2>
+        <hr>
+        <div *ngFor="let review of userReviews">    
+            <mat-card>
+                <mat-card-title>{{ review.subject }}</mat-card-title>
+                <mat-card-subtitle>By {{ review.reviewer.username }}</mat-card-subtitle>
+                <mat-card-content>
+                    {{ review.body }}
+                    <a style="display: block; font-style: italic;" [routerLink]="['/movies', review.imdbid]">Go to movie</a>
+                </mat-card-content>
+            </mat-card>
         </div>
       </div>
     </div>
