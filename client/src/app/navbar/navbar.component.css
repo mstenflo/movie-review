@@ -24,12 +24,12 @@ a, a:active {
     width: 5rem;
     margin: 0.5rem;
     align-self: center;
-    padding: 1rem;
+    padding: 0.5rem;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: var(--nav-button-text);
     font-weight: bold;
-    background-color: #1789FC;
+    background-color: var(--nav-button-background);
 }
 
 
