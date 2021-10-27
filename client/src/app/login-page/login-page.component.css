@@ -12,6 +12,10 @@ body {
   background-color: #3a3a3a;
 }
 
+h1 {
+  text-align: center;
+}
+
 #main-holder {
   width: 50%;
   height: 70%;
