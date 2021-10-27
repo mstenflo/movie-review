@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-page',
@@ -14,23 +15,35 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private http : HttpClient,
-    private router : Router
+    private router : Router,
+    private cookieService : CookieService
   ) { }
 
   handleClick(): void {
+    let data = {
+      username: this.username,
+      password: this.password
+    }
     console.log({
       username: this.username,
       password: this.password
     });
-    this.http.post("http://localhost:8001/api/users/login", {
-      username: this.username,
-      password: this.password,
-    }, {
-      observe: 'response',
-    }).subscribe((response) => {
-      console.log(response);
-      this.router.navigate(["/"]);
+    fetch("http://localhost:8001/api/users/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(data)
     })
+    .then((res) => res.json())
+    .then((resData) => {
+      if (resData) {
+        this.cookieService.set("username", data.username);
+        this.router.navigate(["/"]);
+      } else {
+
+      }
+    });
   }
 
   ngOnInit() : void {
