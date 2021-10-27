@@ -1,7 +1,86 @@
-<div>
-    <p>{{ user.username }}</p>
-    <p>{{ user.firstname }}</p>
-    <p>{{ user.lastname }}</p>
-    <p>{{ user.email }}</p>
-    <p>{{ user.phone }}</p>
+<head><!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <!-- Font Awesome CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'></head>
+
+<div class="User Profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <h1>Profile</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent border-0">
+            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Contact Information</h3>
+          </div>
+          <div class="card-body pt-0">
+            <table class="table table-bordered">
+              <tr>
+                <th width="30%">Email</th>
+                <td width="2%">:</td>
+                <td>
+                  <form>
+                    <label for="email"></label><br>
+                    <div class="flexbox">
+                    <input type="text" id="email" name="email"><br>
+                    <button type="save" value="Save">Save</button>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <th width="30%">Phone Number</th>
+                <td width="2%">:</td>
+                <td>
+                  <form>
+                    <label for="pnumber"></label><br>
+                    <div class="flexbox">
+                      <input type="text" id="pnumber" name="pnumber"><br>
+                      <button type="save" value="Save">Save</button>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <th width="30%">First Name</th>
+                <td width="2%">:</td>
+                <td>
+                  <form>
+                    <label for="fname"></label><br>
+                    <div class="flexbox">
+                    <input type="text" id="fname" name="fname"><br>
+                    <button type="save" value="Save">Save</button>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <th width="30%">Last Name</th>
+                <td width="2%">:</td>
+                <td>
+                  <form>
+                    <label for="lname"></label><br>
+                    <div class="flexbox">
+                    <input type="text" id="lname" name="lname"><br>
+                    <button class="save" type="save" value="Save">Save</button>
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+
+        
+      </div>
+    </div>
+  </div>
 </div>
