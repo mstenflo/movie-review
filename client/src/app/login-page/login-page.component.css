@@ -32,7 +32,7 @@ body {
 }
 
 #login-error-msg {
-  width: 23%;
+  width: 20%;
   text-align: center;
   margin: 0;
   padding: 5px;
@@ -40,7 +40,7 @@ body {
   font-weight: bold;
   color: #8a0000;
   border: 1px solid #8a0000;
-  background-color: #e58f8f;
+  background-color: #83BCFF;
   opacity: 0;
 }
 
@@ -61,6 +61,7 @@ body {
 
 .login-form-field {
   border: none;
+  width: 20%;
   border-bottom: 1px solid #3a3a3a;
   margin-bottom: 10px;
   border-radius: 3px;
@@ -69,13 +70,13 @@ body {
 }
 
 #login-form-submit {
-  width: 100%;
+  width: 20%;
   padding: 7px;
   border: none;
   border-radius: 5px;
   color: white;
   font-weight: bold;
-  background-color: #3a3a3a;
+  background-color: #003d80;
   cursor: pointer;
   outline: none;
 }
