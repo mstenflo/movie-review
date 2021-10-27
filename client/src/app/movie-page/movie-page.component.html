@@ -15,7 +15,7 @@
                 <app-movie-actors [movie]="movie"></app-movie-actors>
             </mat-tab>
             <mat-tab label="Reviews">
-                <app-review-list [reviews]="reviews"></app-review-list>
+                <app-review-list [reviews]="reviews" [movie_id]="movie.id" [canPostReview]="true"></app-review-list>
             </mat-tab>
         </mat-tab-group>
     </div>

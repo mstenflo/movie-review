@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../User';
+import { Review } from '../review';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserProfilePageComponent implements OnInit {
 
   user! : any;
+  userReviews! : any;
 
   constructor(
     private http : HttpClient,
@@ -18,7 +19,20 @@ export class UserProfilePageComponent implements OnInit {
   ) { }
 
   getUser(username : string) : void {
-    this.http.get(`http://localhost:8001/api/users/username/${username}`).subscribe((data) => this.user = data)
+    this.http.get(`http://localhost:8001/api/users/username/${username}`).subscribe((data) => {
+      this.user = data;
+      
+      this.getUserReviews(this.user.id);
+    })
+  }
+
+  getUserReviews(id : string) : void {
+      console.log("test");
+      this.http.get(`http://localhost:8001/api/reviews/reviewer/${id}`)
+        .subscribe((data) => {
+          console.log(data);
+          this.userReviews = data;
+        })
   }
 
   ngOnInit(): void {

@@ -1,0 +1,13 @@
+<div>
+    <form>
+        <label>
+            Subject:<br>
+            <input type="text" name="subject" id="subject" [(ngModel)]="subject">
+        </label>
+        <label>
+            Body:<br>
+            <textarea name="body" id="body" [(ngModel)]="body"></textarea>
+        </label>
+        <button type="submit" (click)="handleClick()">Submit Review</button>
+    </form>
+</div>

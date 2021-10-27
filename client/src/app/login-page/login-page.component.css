@@ -12,6 +12,10 @@ body {
   background-color: #3a3a3a;
 }
 
+h1 {
+  text-align: center;
+}
+
 #main-holder {
   width: 50%;
   height: 70%;
@@ -67,16 +71,4 @@ body {
   border-radius: 3px;
   outline: none;
   padding: 0px 0px 5px 5px;
-}
-
-#login-form-submit {
-  width: 20%;
-  padding: 7px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  background-color: #003d80;
-  cursor: pointer;
-  outline: none;
 }

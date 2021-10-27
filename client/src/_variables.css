@@ -1,8 +1,11 @@
 * {
     --primary-color: #304c89;
-    --secondary-color: #304c89;
+    --secondary-color: #7899D4;
     --background-color: #f0f5ff;
 
     --primary-text: white;
     --secondary-text: white;
+
+    --nav-button-background: #7899D4;
+    --nav-button-text: white
 }

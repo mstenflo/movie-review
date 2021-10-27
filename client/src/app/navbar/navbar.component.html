@@ -1,12 +1,13 @@
 <nav>
     <span id="navbar-brand">
-        <a routerLink="/">Cognoscenti</a>
+        <a [routerLink]="['/']">Cognoscenti</a>
     </span>
     <app-search-input></app-search-input>
-    <br>
-  <input type="submit"
-         value="Login"
-         id="login-form-submit"
-         onClick="window.open('http://localhost:4200/login')">
-
+    <div id="authButtons" *ngIf="!isAuthenticated">
+        <a [routerLink]="['login']" class="authButton">Login</a>
+        <a [routerLink]="['register']" class="authButton">Register</a>
+    </div>
+    <div *ngIf="isAuthenticated">
+        <span class="authButton" (click)="logOutUser()">Logout</span>
+    </div>
 </nav>

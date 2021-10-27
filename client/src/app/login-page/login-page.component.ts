@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,38 +9,44 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  @Input() username! : string;
-  @Input() password! : string;
+
+  username!: string;
+  password!: string;
 
   constructor(
-    private http : HttpClient
-  ) {
-  }
+    private http : HttpClient,
+    private router : Router,
+    private cookieService : CookieService
+  ) { }
 
-  ngOnInit(): void {
-  }
-
-  handleClick() {
-    this.http.post("/api/users", {
+  handleClick(): void {
+    let data = {
+      username: this.username,
+      password: this.password
+    }
+    console.log({
       username: this.username,
       password: this.password
     });
-    //e.preventDefault();
-    //const username = registerForm.username.value;
-    // password = registerForm.password.value;
-    //let accountType;
-    //if (username === "employee" && password === "employees") {
-    //accountType = true;
-    //alert("You have successfully registered as an employee.");
-    //location.reload();
-    //} else if (username === "manager" && password === "managers") {
-    //accountType = false;
-       //alert("You have successfully registered as a manager.");
-       //location.reload();
-     //}
-     //else {
-       //loginErrorMsg.style.opacity = 1;
-     }
-  //}
-}
+    fetch("http://localhost:8001/api/users/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then((res) => res.json())
+    .then((resData) => {
+      if (resData) {
+        this.cookieService.set("username", data.username);
+        window.location.href = "/";
+      } else {
 
+      }
+    });
+  }
+
+  ngOnInit() : void {
+
+  }
+}

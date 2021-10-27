@@ -11,7 +11,7 @@ import { LoggerService } from './logger.service';
   providedIn: 'root'
 })
 export class MovieService {
-  private moviesUrl = api.top_movies_url;
+  private moviesUrl = api.popular_movies_url;
   private searchMoviesUrl = api.search_movies_url;
   private specificMovieUrl = api.specific_movie_url;
 
