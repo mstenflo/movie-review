@@ -1,31 +1,50 @@
-<html>
-<head>
-  <style>
-    h1 {text-align: center;}
-  </style>
-</head>
-<h1 id="register-header">Registration</h1>
+<div>
+  <h1 id="register-header">Registration</h1>
 
-<div id="register-error-msg-holder">
-  <p id="register-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+  <div id="register-error-msg-holder">
+    <p id="register-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+  </div>
+
+  <form id="register-form">
+    <input type="text"
+            name="username"
+            id="username-field"
+            class="register-form-field"
+            placeholder="Username"
+            [(ngModel)]="username">
+    <input type="password"
+          name="password"
+          id="password-field"
+          class="register-form-field"
+          placeholder="Password"
+          [(ngModel)]="password">
+    <input type="text"
+          name="firstname"
+          id="firstname-field"
+          class="register-form-field"
+          placeholder="First Name"
+          [(ngModel)]="firstname">
+    <input type="text"
+          name="lastname"
+          id="lastname-field"
+          class="register-form-field"
+          placeholder="Last Name"
+          [(ngModel)]="lastname">
+    <input type="email"
+          name="email"
+          id="email-field"
+          class="register-form-field"
+          placeholder="Email@example.com"
+          [(ngModel)]="email">
+    <input type="text"
+          name="phone"
+          id="phone-field"
+          class="register-form-field"
+          placeholder="Phone Number"
+          [(ngModel)]="phone">
+    <input type="submit"
+          value="Register"
+          id="register-form-submit"
+          (click)="handleClick()">
+  </form>
 </div>
-
-<form id="register-form">
-  <input type="text"
-         name="username"
-         id="username-field"
-         class="register-form-field"
-         placeholder="Username"
-         [value]="username">
-  <input type="password"
-         name="password"
-         id="password-field"
-         class="register-form-field"
-         placeholder="Password"
-         [value]="password">
-  <input type="submit"
-         value="Register"
-         id="register-form-submit"
-         (click)="handleClick">
-</form>
-</html>

@@ -23,7 +23,6 @@ export class RegisterPageComponent implements OnInit {
   ) { }
 
   handleClick() : void {
-    console.log("YOU'RE HERE!");
     this.http.post("http://localhost:8001/api/users", {
       username: this.username,
       password: this.password,
