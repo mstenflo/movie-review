@@ -23,6 +23,7 @@ import { ReviewListComponent } from './review-list/review-list.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { UpdateProfilePageComponent } from './update-profile-page/update-profile-page.component';
 import { CreateReviewFormComponent } from './create-review-form/create-review-form.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { CreateReviewFormComponent } from './create-review-form/create-review-fo
     MatCardModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
