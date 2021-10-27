@@ -30,6 +30,7 @@ a, a:active {
     color: var(--nav-button-text);
     font-weight: bold;
     background-color: var(--nav-button-background);
+    cursor: pointer;
 }
 
 

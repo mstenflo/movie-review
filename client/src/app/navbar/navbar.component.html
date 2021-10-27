@@ -3,8 +3,11 @@
         <a [routerLink]="['/']">Cognoscenti</a>
     </span>
     <app-search-input></app-search-input>
-    <div id="authButtons">
+    <div id="authButtons" *ngIf="!isAuthenticated">
         <a [routerLink]="['login']" class="authButton">Login</a>
         <a [routerLink]="['register']" class="authButton">Register</a>
+    </div>
+    <div *ngIf="isAuthenticated">
+        <span class="authButton" (click)="logOutUser()">Logout</span>
     </div>
 </nav>
