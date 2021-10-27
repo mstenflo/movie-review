@@ -21,7 +21,12 @@ export class UpdateProfilePageComponent implements OnInit {
   }
 
   handleClick() : void {
-    
+    this.http.patch(`http://localhost:8001/api/users/${this.user.id}`, {
+      firstname: this.user.firstname,
+      lastname: this.user.lastname,
+      email: this.user.email,
+      phone: this.user.phone
+    }).subscribe(this.user);
   }
 
   ngOnInit(): void {
