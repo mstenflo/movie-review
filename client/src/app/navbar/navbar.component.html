@@ -8,6 +8,8 @@
         <a [routerLink]="['register']" class="authButton">Register</a>
     </div>
     <div *ngIf="isAuthenticated">
+        <a [routerLink]="[username, 'profile']" class="authButton">Profile</a>
+        <a [routerLink]="[username, 'profile', 'edit']" class="authButton">Edit Profile</a>
         <span class="authButton" (click)="logOutUser()">Logout</span>
     </div>
 </nav>

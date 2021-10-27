@@ -1,6 +1,6 @@
 <div (focusout)="delayToggleSearch(false)" >
     <input type="text" 
-           placeholder="Search Movies & Users..." 
+           placeholder="Search Movies" 
            [(ngModel)]="searchTerm" 
            (ngModelChange)="searchForMovie()">
     <div id="movieSearchResults" [@searchOpenState]="menuState">
