@@ -23,22 +23,22 @@ export class LoginPageComponent implements OnInit {
       username: this.username,
       password: this.password
     });
-    // e.preventDefault();
-    // const username = registerForm.username.value;
-    // const password = registerForm.password.value;
-    // let accountType;
-    // if (username === "employee" && password === "employees") {
-    //   accountType = true;
-    //   alert("You have successfully registered as an employee.");
-    //   location.reload();
-    // } else if (username === "manager" && password === "managers") {
-    //   accountType = false;
-    //   alert("You have successfully registered as a manager.");
-    //   location.reload();
-    // }
-    // else {
-    //   loginErrorMsg.style.opacity = 1;
-    // }
-  }
+    //e.preventDefault();
+    //const username = registerForm.username.value;
+    // password = registerForm.password.value;
+    //let accountType;
+    //if (username === "employee" && password === "employees") {
+    //accountType = true;
+    //alert("You have successfully registered as an employee.");
+    //location.reload();
+    //} else if (username === "manager" && password === "managers") {
+    //accountType = false;
+       //alert("You have successfully registered as a manager.");
+       //location.reload();
+     //}
+     //else {
+       //loginErrorMsg.style.opacity = 1;
+     }
+  //}
 }
 

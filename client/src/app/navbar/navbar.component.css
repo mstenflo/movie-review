@@ -19,6 +19,19 @@ a, a:active {
     padding: 1.5rem;
 }
 
+#login-form-submit {
+  width: 5%;
+  margin-left: 5%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #1789FC;
+  cursor: pointer;
+  outline: none;
+}
+
 
 
 @media (min-width: 576px) {
@@ -42,5 +55,5 @@ a, a:active {
 }
 
 @media (min-width: 1200px) {
-    
+
 }
