@@ -1,6 +1,6 @@
 <div>
     <div style="display: block;">
-        <app-create-review-form [movie_id]="movie_id"></app-create-review-form>
+        <app-create-review-form *ngIf="canPostReview" [movie_id]="movie_id"></app-create-review-form>
     </div>
     <div *ngFor="let review of reviews" style="display: block;">
         <mat-card>

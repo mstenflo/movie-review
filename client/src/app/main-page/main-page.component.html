@@ -1,20 +1,23 @@
-<h2>Top Selling</h2>
-<div id="top-selling-list">
-    <div *ngIf="movies.length !== 0; else elseBlock">
-        <div *ngFor="let movie of movies">
-            <a [routerLink]="['/movies', movie.id]">
-                <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
-            </a>
-            <p>
-                <a [routerLink]="['/movies', movie.id]">{{ movie.title }}</a>
-            </p>
+
+<div id="main-content">
+    <div id="top-selling-list">
+        <h2>Most Popular</h2>
+        <div *ngIf="movies.length !== 0; else elseBlock">
+            <div *ngFor="let movie of movies">
+                <a [routerLink]="['/movies', movie.id]">
+                    <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
+                </a>
+                <p>
+                    <a [routerLink]="['/movies', movie.id]">{{ movie.title }}</a>
+                </p>
+            </div>
         </div>
+        <ng-template #elseBlock>
+            <mat-progress-spinner
+                class="example-margin"
+                [color]="color"
+                [mode]="mode">
+            </mat-progress-spinner>
+        </ng-template>
     </div>
-    <ng-template #elseBlock>
-        <mat-progress-spinner
-            class="example-margin"
-            [color]="color"
-            [mode]="mode">
-        </mat-progress-spinner>
-    </ng-template>
 </div>
