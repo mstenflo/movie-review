@@ -40,6 +40,11 @@ public class ReviewController {
         return reviewRepository.getById(id);
     }
 
+    @GetMapping(path = "reviewer/{id}")
+    public List<Review> getReviewsByUser(@PathVariable long id) {
+        return reviewRepository.findByReviewer(id);
+    }
+
     /**
      * Update a review
      * @param review
