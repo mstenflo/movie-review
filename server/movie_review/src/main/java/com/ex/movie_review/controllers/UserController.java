@@ -1,8 +1,11 @@
 package com.ex.movie_review.controllers;
 
+import com.ex.movie_review.MovieReviewApplication;
 import com.ex.movie_review.models.User;
 import com.ex.movie_review.repositories.UserRepository;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Isolation;
@@ -20,6 +23,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     private UserRepository userRepository;
+    private Logger logger = LogManager.getLogger(MovieReviewApplication.class);
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
@@ -33,6 +37,7 @@ public class UserController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAll() {
         List<User> users = userRepository.findAll();
+        logger.info("Get all users");
         return users;
     }
 
@@ -44,6 +49,7 @@ public class UserController {
     @GetMapping(path="{id}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
     public User getUserById(@PathVariable long id) {
+        logger.info("Get user");
         return userRepository.getById(id);
     }
 
@@ -54,6 +60,7 @@ public class UserController {
      */
     @GetMapping(path="username/{username}")
     public User getUserByUsername(@PathVariable String username) {
+        logger.info("Get user by username");
         return userRepository.findByUsername(username);
     }
 
@@ -63,6 +70,7 @@ public class UserController {
      */
     @PostMapping()
     public void createNewUser(@RequestBody User newUser) {
+        logger.info("create new user");
         userRepository.save(newUser);
     }
 
@@ -73,6 +81,7 @@ public class UserController {
      */
     @PatchMapping(path = "{id}")
     public void updateUser(@PathVariable long id, @RequestBody User userUpdate) {
+        logger.info("update user");
         User user = userRepository.getById(id);
         if (userUpdate.getUsername() != null) {
             user.setUsername(userUpdate.getUsername());
@@ -97,13 +106,21 @@ public class UserController {
 
     @PostMapping(path = "login")
     public Boolean loginUser(@RequestBody User userSubmission, HttpServletResponse response) {
+        logger.info("login user");
         User user = userRepository.findByUsername(userSubmission.getUsername());
         if (user.getPassword().equals(userSubmission.getPassword())) {
             Cookie cookie = new Cookie("user", user.getUsername());
-            response.addCookie((cookie));
+            response.addCookie(cookie);
             return true;
         } else {
             return false;
         }
+    }
+
+    @PostMapping(path = "logout")
+    public void logoutUser(HttpServletResponse response) {
+        logger.info("logout user");
+        Cookie cookie = new Cookie("user", "");
+        response.addCookie(cookie);
     }
 }
