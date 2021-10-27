@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
     .then((resData) => {
       if (resData) {
         this.cookieService.set("username", data.username);
-        this.router.navigate(["/"]);
+        window.location.href = "/";
       } else {
 
       }
