@@ -2,8 +2,12 @@
 <div id="top-selling-list">
     <div *ngIf="movies.length !== 0; else elseBlock">
         <div *ngFor="let movie of movies">
-            <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
-            <p>{{ movie.title }}</p>
+            <a [routerLink]="['/movies', movie.id]">
+                <img src="{{ movie.image }}" alt="Movie poster for {{ movie.title }}">
+            </a>
+            <p>
+                <a [routerLink]="['/movies', movie.id]">{{ movie.title }}</a>
+            </p>
         </div>
     </div>
     <ng-template #elseBlock>
